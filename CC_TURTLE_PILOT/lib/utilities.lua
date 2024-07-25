@@ -47,7 +47,10 @@ function utilities.sign(x) --faster, caution: doesn't return 0
 end
 
 function utilities.clamp_vector3(vec,minn,maxx)
-	return vector.new(utilities.clamp(vec.x,minn,maxx),utilities.clamp(vec.y,minn,maxx),utilities.clamp(vec.z,minn,maxx))
+	if(type(minn) == "number" & type(maxx) == "number") then
+		return vector.new(utilities.clamp(vec.x,minn,maxx),utilities.clamp(vec.y,minn,maxx),utilities.clamp(vec.z,minn,maxx))
+	end
+	return vector.new(utilities.clamp(vec.x,minn.x,maxx.x),utilities.clamp(vec.y,minn.y,maxx.y),utilities.clamp(vec.z,minn.z,maxx.z))
 end
 
 function utilities.sign_vector3(vec)

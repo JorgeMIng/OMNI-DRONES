@@ -48,20 +48,20 @@ function DroneBaseClassSP:initAccelerationControllers()
 	self.pos_PID = pidcontrollers.PID_Discrete_Vector(	self.ship_constants.PID_SETTINGS.POS.P,
 											self.ship_constants.PID_SETTINGS.POS.I,
 											self.ship_constants.PID_SETTINGS.POS.D,
-											-max_lin_acc,max_lin_acc)
+											max_lin_acc.neg,max_lin_acc.pos)
 
 	self.rot_x_PID = pidcontrollers.PID_Discrete_Scalar(self.ship_constants.PID_SETTINGS.ROT.X.P,
 													self.ship_constants.PID_SETTINGS.ROT.X.I,
 													self.ship_constants.PID_SETTINGS.ROT.X.D,
-													-max_ang_acc[1][1],max_ang_acc[1][1])
+													max_ang_acc.neg[1][1],max_ang_acc.pos[1][1])
 	self.rot_y_PID = pidcontrollers.PID_Discrete_Scalar(self.ship_constants.PID_SETTINGS.ROT.Y.P,
 													self.ship_constants.PID_SETTINGS.ROT.Y.I,
 													self.ship_constants.PID_SETTINGS.ROT.Y.D,
-													-max_ang_acc[2][1],max_ang_acc[2][1])
+													max_ang_acc.neg[2][1],max_ang_acc.pos[2][1])
 	self.rot_z_PID = pidcontrollers.PID_Discrete_Scalar(self.ship_constants.PID_SETTINGS.ROT.Z.P,
 													self.ship_constants.PID_SETTINGS.ROT.Z.I,
 													self.ship_constants.PID_SETTINGS.ROT.Z.D,
-													-max_ang_acc[3][1],max_ang_acc[3][1])
+													max_ang_acc.neg[3][1],max_ang_acc.pos[3][1])
 
 	-- self.pos_PID = pidcontrollers.PID_Continuous_Vector(	self.ship_constants.PID_SETTINGS.POS.P,
 	-- 										self.ship_constants.PID_SETTINGS.POS.I,
@@ -218,11 +218,10 @@ function DroneBaseClassSP:initFlightConstants()
 	local thruster_table = self:getThrusterTable()
 
 	local JACOBIAN_TRANSPOSE = matrix(self:buildJacobianTranspose(thruster_table))
-	
+	--[[
 	local minimum_base_thruster_force = 9999999999
 	local minimum_radius_vector = vector.new(99999999,99999999,99999999)
 	local minimum_thruster_direction = vector.new(0,1,0)
-	
 	for i,v in pairs(thruster_table) do
 		local thruster_radius = v.radius
 		thruster_radius = vector.new(thruster_radius.x,thruster_radius.y,thruster_radius.z)
@@ -235,29 +234,82 @@ function DroneBaseClassSP:initFlightConstants()
 			minimum_base_thruster_force = v.base_force
 		end
 	end
-	
 	local inverse_new_default_ship_orientation = self.ship_constants.DEFAULT_NEW_LOCAL_SHIP_ORIENTATION:inv()
 	local new_min_dir = inverse_new_default_ship_orientation:rotateVector3(minimum_thruster_direction)
 	local new_min_r = inverse_new_default_ship_orientation:rotateVector3(minimum_radius_vector)
-	
 	local max_thruster_force = max_redstone*minimum_base_thruster_force
 	local max_linear_acceleration = max_thruster_force/ship_mass
-	
 	local torque_saturation = new_min_r:cross(new_min_dir) * max_thruster_force
-	
 	torque_saturation = utilities.abs_vector3(torque_saturation)
-	--self:debugProbe({torque_saturation=torque_saturation,max_thruster_force=max_thruster_force,minimum_base_thruster_force=minimum_base_thruster_force})
-	--torque_saturation = matrix({{torque_saturation.x},{torque_saturation.y},{torque_saturation.z}})
-	torque_saturation = matrix({{99999999999},{99999999999},{99999999999}})
-	
+	torque_saturation = matrix({{torque_saturation.x},{torque_saturation.y},{torque_saturation.z}})
 	local max_angular_acceleration = matrix.mul(self.ship_constants.LOCAL_INV_INERTIA_TENSOR,torque_saturation)
-	--self:debugProbe({max_angular_acceleration=max_angular_acceleration})
+	self.max_linear_acceleration = max_linear_acceleration
+	self.max_angular_acceleration = max_angular_acceleration
+	]]--
+	local inverse_new_default_ship_orientation = self.ship_constants.DEFAULT_NEW_LOCAL_SHIP_ORIENTATION:inv()
+
+	local max_linear_acceleration = {pos=vector.new(0,0,0),neg=vector.new(0,0,0)}
+	local max_angular_acceleration = {pos=vector.new(0,0,0),neg=vector.new(0,0,0)}
+
+	local force_saturation_table = {pos=vector.new(0,0,0),neg=vector.new(0,0,0)}
+	local torque_saturation_table = {pos=vector.new(0,0,0),neg=vector.new(0,0,0)}
+	for i,thruster in pairs(thruster_table) do
+		local dir = thruster.direction
+		local pos = thruster.radius
+		local frc = thruster.base_force
+
+		local new_min_dir = inverse_new_default_ship_orientation:rotateVector3(dir)
+		local new_min_r = inverse_new_default_ship_orientation:rotateVector3(pos)
+
+		local max_thruster_force = max_redstone*frc
+		local max_thruster_force_vector = new_min_dir*max_thruster_force
+		if(max_thruster_force_vector.x>0) then
+			force_saturation_table.pos.x = force_saturation_table.pos.x + max_thruster_force_vector.x
+		elseif(max_thruster_force_vector.x<0) then
+			force_saturation_table.neg.x = force_saturation_table.neg.x + max_thruster_force_vector.x
+		elseif(max_thruster_force_vector.y>0) then
+			force_saturation_table.pos.y = force_saturation_table.pos.y + max_thruster_force_vector.y
+		elseif(max_thruster_force_vector.y<0) then
+			force_saturation_table.neg.y = force_saturation_table.neg.y + max_thruster_force_vector.y
+		elseif(max_thruster_force_vector.z>0) then
+			force_saturation_table.pos.z = force_saturation_table.pos.z + max_thruster_force_vector.z
+		elseif(max_thruster_force_vector.z<0) then
+			force_saturation_table.neg.z = force_saturation_table.neg.z + max_thruster_force_vector.z
+		end
+
+		local max_thruster_torque_vector = new_min_r:cross(new_min_dir) * max_thruster_force
+		if(max_thruster_torque_vector.x>0) then
+			torque_saturation_table.pos.x = torque_saturation_table.pos.x + max_thruster_torque_vector.x
+		elseif(max_thruster_torque_vector.x<0) then
+			torque_saturation_table.neg.x = torque_saturation_table.neg.x + max_thruster_torque_vector.x
+		elseif(max_thruster_torque_vector.y>0) then
+			torque_saturation_table.pos.y = torque_saturation_table.pos.y + max_thruster_torque_vector.y
+		elseif(max_thruster_torque_vector.y<0) then
+			torque_saturation_table.neg.y = torque_saturation_table.neg.y + max_thruster_torque_vector.y
+		elseif(max_thruster_torque_vector.z>0) then
+			torque_saturation_table.pos.z = torque_saturation_table.pos.z + max_thruster_torque_vector.z
+		elseif(max_thruster_torque_vector.z<0) then
+			torque_saturation_table.neg.z = torque_saturation_table.neg.z + max_thruster_torque_vector.z
+		end
+
+	end
+
+	max_linear_acceleration.pos = force_saturation_table.pos/ship_mass
+	max_linear_acceleration.neg = force_saturation_table.neg/ship_mass
+
+	local torque_saturation_pos = matrix({{torque_saturation_table.pos.x},{torque_saturation_table.pos.y},{torque_saturation_table.pos.z}})
+	max_angular_acceleration.pos = matrix.mul(self.ship_constants.LOCAL_INV_INERTIA_TENSOR,torque_saturation_pos)
+	local torque_saturation_neg = matrix({{torque_saturation_table.neg.x},{torque_saturation_table.neg.y},{torque_saturation_table.neg.z}})
+	max_angular_acceleration.neg = matrix.mul(self.ship_constants.LOCAL_INV_INERTIA_TENSOR,torque_saturation_neg)
+	
+	self.max_linear_acceleration = max_linear_acceleration 		--{pos={x,y,z},neg={x,y,z}}
+	self.max_angular_acceleration = max_angular_acceleration	--{pos={x,y,z},neg={x,y,z}}
+
 	self.min_time_step = min_time_step
 	self.ship_mass = ship_mass
 	self.gravity_acceleration_vector = gravity_acceleration_vector
 	self.JACOBIAN_TRANSPOSE = JACOBIAN_TRANSPOSE
-	self.max_linear_acceleration = max_linear_acceleration
-	self.max_angular_acceleration = max_angular_acceleration
+	
 
 end
 
