@@ -42,7 +42,7 @@ function DroneBaseClassSP:getOffsetDefaultShipOrientation(default_ship_orientati
 	return DroneBaseClass:getOffsetDefaultShipOrientation(default_ship_orientation)
 end
 
-function DroneBaseClassSP:initAccelerationControllers()
+function DroneBaseClassSP:initDynamicControllers()
 	local max_lin_acc = self.max_linear_acceleration
 	local max_ang_acc = self.max_angular_acceleration
 	self.pos_PID = pidcontrollers.PID_Discrete_Vector(	self.ship_constants.PID_SETTINGS.POS.P,
@@ -81,7 +81,7 @@ function DroneBaseClassSP:initAccelerationControllers()
 	-- 												-max_ang_acc[3][1],max_ang_acc[3][1])
 end
 
-function DroneBaseClassSP:calculateAcceleration(rotation_error,position_error)--return rotational-acceletarion and lateral-acceleration in that order
+function DroneBaseClassSP:calculateDynamicControlValues(rotation_error,position_error)--return rotational-acceletarion and lateral-acceleration in that order
 	return 	matrix({
 				{self.rot_x_PID:run(rotation_error.x)},
 				{self.rot_y_PID:run(rotation_error.y)},
@@ -218,34 +218,7 @@ function DroneBaseClassSP:initFlightConstants()
 	local thruster_table = self:getThrusterTable()
 
 	local JACOBIAN_TRANSPOSE = matrix(self:buildJacobianTranspose(thruster_table))
-	--[[
-	local minimum_base_thruster_force = 9999999999
-	local minimum_radius_vector = vector.new(99999999,99999999,99999999)
-	local minimum_thruster_direction = vector.new(0,1,0)
-	for i,v in pairs(thruster_table) do
-		local thruster_radius = v.radius
-		thruster_radius = vector.new(thruster_radius.x,thruster_radius.y,thruster_radius.z)
-		if (thruster_radius:length() < minimum_radius_vector:length()) then
-			minimum_radius_vector = thruster_radius
-			minimum_thruster_direction = v.direction
-			minimum_thruster_direction = vector.new(minimum_thruster_direction.x,minimum_thruster_direction.y,minimum_thruster_direction.z)
-		end
-		if(v.base_force<minimum_base_thruster_force) then
-			minimum_base_thruster_force = v.base_force
-		end
-	end
-	local inverse_new_default_ship_orientation = self.ship_constants.DEFAULT_NEW_LOCAL_SHIP_ORIENTATION:inv()
-	local new_min_dir = inverse_new_default_ship_orientation:rotateVector3(minimum_thruster_direction)
-	local new_min_r = inverse_new_default_ship_orientation:rotateVector3(minimum_radius_vector)
-	local max_thruster_force = max_redstone*minimum_base_thruster_force
-	local max_linear_acceleration = max_thruster_force/ship_mass
-	local torque_saturation = new_min_r:cross(new_min_dir) * max_thruster_force
-	torque_saturation = utilities.abs_vector3(torque_saturation)
-	torque_saturation = matrix({{torque_saturation.x},{torque_saturation.y},{torque_saturation.z}})
-	local max_angular_acceleration = matrix.mul(self.ship_constants.LOCAL_INV_INERTIA_TENSOR,torque_saturation)
-	self.max_linear_acceleration = max_linear_acceleration
-	self.max_angular_acceleration = max_angular_acceleration
-	]]--
+
 	local inverse_new_default_ship_orientation = self.ship_constants.DEFAULT_NEW_LOCAL_SHIP_ORIENTATION:inv()
 
 	local max_linear_acceleration = {pos=vector.new(0,0,0),neg=vector.new(0,0,0)}
@@ -317,7 +290,7 @@ function DroneBaseClassSP:calculateMovement()
 
 	self:initFlightConstants()
 
-	self:initAccelerationControllers()
+	self:initDynamicControllers()
 	
 	self.pwmMatrixList = utilities.PwmMatrixList(10)
 	
@@ -341,7 +314,7 @@ function DroneBaseClassSP:calculateMovement()
 		self.rotation_error = getQuaternionRotationError(self.target_rotation,self.ship_rotation)
 		self.position_error = getLocalPositionError(self.target_global_position,self.ship_global_position,self.ship_rotation)
 		--self:debugProbe({rotation_error=self.rotation_error})
-		local pid_output_angular_acceleration,pid_output_linear_acceleration = self:calculateAcceleration(self.rotation_error,self.position_error)
+		local pid_output_angular_acceleration,pid_output_linear_acceleration = self:calculateDynamicControlValues(self.rotation_error,self.position_error)
 		--self:debugProbe({pid_output_angular_acceleration=pid_output_angular_acceleration,rotation_error=self.rotation_error})
 		local net_torque = matrix.mul(self.ship_constants.LOCAL_INERTIA_TENSOR,pid_output_angular_acceleration)
 		
