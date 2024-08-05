@@ -223,16 +223,19 @@ end
 function DroneBaseClass:initVariables()
 	self.ship_global_velocity = vector.new(0,0,0)
 	self.run_firmware = true
-	
+
 	self.ship_rotation = self.sensors.shipReader:getRotation(true)
 	self.ship_rotation = quaternion.new(self.ship_rotation.w,self.ship_rotation.x,self.ship_rotation.y,self.ship_rotation.z)
 	self.ship_rotation = self:getOffsetDefaultShipOrientation(self.ship_rotation)
 	self.target_rotation = self.ship_rotation
-	
-	
+
 	self.ship_global_position = self.sensors.shipReader:getWorldspacePosition()
 	self.ship_global_position = vector.new(self.ship_global_position.x,self.ship_global_position.y,self.ship_global_position.z)
 	self.target_global_position = self.ship_global_position
+
+	self.ship_global_velocity = self.sensors.shipReader:getVelocity()
+	self.ship_global_velocity = vector.new(self.ship_global_velocity.x,self.ship_global_velocity.y,self.ship_global_velocity.z)
+	self.target_global_velocity = vector.new(0,0,0)
 
 	--useful for modifying flight behavior
 	self.rotation_error = vector.new(0,0,0)
@@ -727,7 +730,10 @@ function DroneBaseClass:calculateMovement()
 
 		self.ship_global_position = self.sensors.shipReader:getWorldspacePosition()
 		self.ship_global_position = vector.new(self.ship_global_position.x,self.ship_global_position.y,self.ship_global_position.z)
-		
+
+		self.ship_global_velocity = self.sensors.shipReader:getVelocity()
+		self.ship_global_velocity = vector.new(self.ship_global_velocity.x,self.ship_global_velocity.y,self.ship_global_velocity.z)
+
 		--FOR ANGULAR MOVEMENT--
 		self.rotation_error = getQuaternionRotationError(self.target_rotation,self.ship_rotation)
 		--self:debugProbe({LEGACY_rotation_error=self.rotation_error})
