@@ -22,6 +22,11 @@ function DroneBaseClassKontraption:init(instance_configs)
 			P=0.04,
             I=0.001,
             D=0.05,
+		},
+        VEL = {
+			P=0.04,
+            I=0.001,
+            D=0.05,
 		}
 	}
 
@@ -43,9 +48,15 @@ function DroneBaseClassKontraption:initDynamicControllers()
                                                         -1,1)
 end
 
-function DroneBaseClassKontraption:calculateDynamicControlValues(rotation_error,position_error)
-	return 	self.pos_PID:run(position_error)
+function DroneBaseClassKontraption:calculateDynamicControlValueError()
+	return 	{pos=getLocalPositionError(self.target_global_position,self.ship_global_position,self.ship_rotation)}
 end
+
+function DroneBaseClassKontraption:calculateDynamicControlValues(error)
+	return 	self.pos_PID:run(error.pos)
+end
+
+
 
 function DroneBaseClassKontraption:initFlightConstants()
     local min_time_step = 0.05 --how fast the computer should continuously loop (the max is 0.05 for ComputerCraft)
@@ -102,9 +113,12 @@ function DroneBaseClassKontraption:calculateMovement()
         self.ship_global_position = self.sensors.shipReader:getWorldspacePosition()
 		self.ship_global_position = vector.new(self.ship_global_position.x,self.ship_global_position.y,self.ship_global_position.z)
         
-        self.position_error = getLocalPositionError(self.target_global_position,self.ship_global_position,self.ship_rotation)
+        self.ship_global_velocity = self.sensors.shipReader:getVelocity()
+		self.ship_global_velocity = vector.new(self.ship_global_velocity.x,self.ship_global_velocity.y,self.ship_global_velocity.z)
+        --self:debugProbe({ship_global_velocity=self.ship_global_velocity})
+        local error = self:calculateDynamicControlValueError()
         
-        local pid_local_linear_power_percentage = self:calculateDynamicControlValues(_,self.position_error)
+        local pid_local_linear_power_percentage = self:calculateDynamicControlValues(self.error)
         
         local local_gravity_acceleration = self.ship_rotation:inv():rotateVector3(self.gravity_acceleration_vector)
 
