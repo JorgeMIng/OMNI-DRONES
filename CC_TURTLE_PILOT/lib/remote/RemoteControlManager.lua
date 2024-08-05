@@ -28,7 +28,6 @@ function RemoteControlManager:getCustomSettings()
 end
 
 function RemoteControlManager:getSettings()
-	
 	local rcd_settings = {
 		orbit_offset = self.rc_variables.orbit_offset,
 		dynamic_positioning_mode = self.rc_variables.dynamic_positioning_mode,
@@ -36,12 +35,11 @@ function RemoteControlManager:getSettings()
 	}
 	
 	local custom_settings = self:getCustomSettings()
-
+	
 	for key,value in pairs(custom_settings) do
-		print(key,value)
+		--print(key,value)
 		rcd_settings[key] = value
 	end
-	error()
 	
 	return rcd_settings
 end
@@ -112,6 +110,7 @@ function RemoteControlManager:init(configs)--
 end
 
 function RemoteControlManager:transmitCurrentSettingsToController()
+	print("transmitCurrentSettingsToController")
 	local msg = {drone_ID=self.DRONE_ID,protocol="drone_settings_update",partial_profile={settings=self:getSettings(),drone_type=self.DRONE_TYPE}}
 	self:transmitToController(msg)
 end
