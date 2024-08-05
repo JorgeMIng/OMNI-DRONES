@@ -95,6 +95,8 @@ function Panabas:overrideShipFrameGetCustomSettings()
 	local panabas = self
 	function self.ShipFrame.remoteControlManager:getCustomSettings()
 		return {
+			blade_mode = panabas.blade_mode,
+			axe_mode = panabas.axe_mode,
 		}
 	end
 end
@@ -107,9 +109,15 @@ function Panabas:overrideShipFrameCustomProtocols()
 		command = command and tonumber(command) or command
 		case =
 		{
+			["blade_mode"]= function (args)
+				panabas.blade_mode = not panabas.blade_mode
+			end,
+			["axe_mode"]= function (args)
+				panabas.axe_mode = not panabas.axe_mode
+			end,
 			default = function ( )
 				print(textutils.serialize(command)) 
-				print("customOmniShipProtocols: default case executed")
+				print("Panabas: default case executed")
 			end,
 		}
 		if case[command] then
