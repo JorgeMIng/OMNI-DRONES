@@ -24,8 +24,8 @@ local instance_configs = {
 			},
 		},
 		ION_THRUSTERS_COUNT = { --number of thrusters pointing in each cardinal direction
-        	pos=vector.new(26,26,12), 	-- +X, +Y, +Z
-        	neg=vector.new(26,26,12)	-- -X, -Y, -Z
+        	pos=vector.new(2,2,2), 	-- +X, +Y, +Z
+        	neg=vector.new(2,2,2)	-- -X, -Y, -Z
     	}
 	},
 	channels_config = {
