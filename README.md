@@ -37,8 +37,43 @@ It is a bit complicated for beginners to setup an omni-drone using VS+Tournament
    3. Go to your world save folder and drop the contents of the `CC_TURTLE_PILOT` folder into your turtle's computer folder: `[worldsave_folder]/computercraft/computer/[computer_id]`. If the turtle's computer folder is not there yet, create one.
 
 ### PREPING THE CODE
-   1. In our turtle's computer folder edit the `startup.lua` script using your favourite text editor.
-         Our turtle runs this script whenever it wakes up or restarts. This script, in turn, runs a `firmwareScript.lua` file.
-         I've prepared a few sample firmwareScripts that you can use as you might have noticed. Since our ship is running on Kontraption. Edit `startup.lua` to run the `firmwareScript_Sand_Skiff_Kontraption.lua`
-   6. 
+   #### startup.lua
+   In our turtle's computer folder edit the `startup.lua` script using your favourite text editor.
+   Our turtle runs this script whenever it wakes up or restarts. This script, in turn, runs a `firmwareScript.lua` file.
+   I've prepared a few sample firmwareScripts that you can use as you might have noticed. Since our ship is running on Kontraption. Edit `startup.lua` to run the `firmwareScript_Kontraption.lua`:
+   ```
+   ...
+   shell.run("firmwareScript_Kontraption.lua")
+   ...
+   ```
+   Now each time we need to change our code we just need to restart the drone by hitting its red power button. 
+
+   #### firwareScript_Kontraption.lua
+   We next need to edit our `firwareScript_Kontraption.lua` file. This is where your pilot's heart is written : )
+
+   We need to tell it how many ion thrusters our ship is using thru the instance configs:
+   `instance_configs > ship_constants_config > ION_THRUSTERS_COUNT`
+   Remember +X is east, +Z is south and +Y is up.
+
+### MOVING, TURNING AND SEQUENCING
+   We can tell the drone where and how to move thru the `customFlightLoopBehavior` function. 
+   Pick a coordinate (XYZ) in your world and type in those coordinates to set the drone's `target_global_position` variable:
+   
+```
+...
+self.target_global_position = vector.new(X,Y,Z)
+...
+```
+   
+   To learn more on how to use it follow this section of this [tutorial video](https://youtu.be/UjBYnDKEcdQ?si=ytZQRVUE_gKhOeR7&t=325). I know the video is outdated but the parts between 5:25 and 10:31 are still relevant in making it move and stuff:
+   
+   [POSITIONING](https://youtu.be/UjBYnDKEcdQ?si=MszuQ6OCrB3relZS&t=326)
+   
+   [DISTANCE MEASURING](https://youtu.be/UjBYnDKEcdQ?si=b0LDGcHqrKWo73Kz&t=376)
+   
+   [ROTATION](https://youtu.be/UjBYnDKEcdQ?si=aTY2puQDIxiEvRGk&t=429)
+   
+   [SEQUENCING ACTIONS](https://youtu.be/UjBYnDKEcdQ?si=_8k38H5ehNus8lYZ&t=530)
+   
+   
    
