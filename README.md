@@ -39,6 +39,6 @@ It is a bit complicated for beginners to setup an omni-drone using VS+Tournament
 ### PREPING THE CODE
    1. In our turtle's computer folder edit the `startup.lua` script using your favourite text editor.
          Our turtle runs this script whenever it wakes up or restarts. This script, in turn, runs a `firmwareScript.lua` file.
-
+         I've prepared a few sample firmwareScripts that you can use as you might have noticed. Since our ship is running on Kontraption. Edit `startup.lua` to run the `firmwareScript_Sand_Skiff_Kontraption.lua`
    6. 
    
