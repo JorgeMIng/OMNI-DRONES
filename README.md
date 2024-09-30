@@ -74,6 +74,10 @@ self.target_global_position = vector.new(X,Y,Z)
    [ROTATION](https://youtu.be/UjBYnDKEcdQ?si=aTY2puQDIxiEvRGk&t=429)
    
    [SEQUENCING ACTIONS](https://youtu.be/UjBYnDKEcdQ?si=_8k38H5ehNus8lYZ&t=530)
+
+### FLY!
+   Once you are happy with your changes in fligth behavior, we can now start flying. Just restart the turtle pilot. If everything goes well it should start flying to the coordinates you've set it to go. 
    
-   
+### WANT MORE?
+Whenever you are ready, you can try following the rest of the tutorial series. Add remote control, swap to tournament, learn how to tame a Hound Turret! but most importantly, have fun :) 
    
