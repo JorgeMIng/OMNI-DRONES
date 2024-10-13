@@ -9,7 +9,7 @@ local drone = DroneBaseClassHexxySkies(instance_configs)
 
 function drone:customFlightLoopBehavior(customFlightVariables)
 	self.target_rotation = quaternion.fromToRotation(self.target_rotation:localPositiveX(),vector.new(0,0,1))*self.target_rotation
-	--self.target_rotation = quaternion.fromToRotation(self.target_rotation:localPositiveX(),vector.new(1,0,0))*self.target_rotation
+	--self.target_rotation = quaternion.fromToRotation(self.target_rotation:localPositiveY(),vector.new(0,-1,0))*self.target_rotation -- uncomment to flip ship upside down
 	self.target_global_position = vector.new(X,Y,Z) --replace XYZ with world coordinates
 end
 
