@@ -13,5 +13,4 @@ function drone:customFlightLoopBehavior(customFlightVariables)
 	self.target_global_position = vector.new(X,Y,Z)
 end
 
-
 drone:run()
