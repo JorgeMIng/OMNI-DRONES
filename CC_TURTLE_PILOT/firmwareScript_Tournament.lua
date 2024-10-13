@@ -34,7 +34,7 @@ local instance_configs = {
 	},
 }
 
-local drone = DroneBaseClassSP:subclass()
+local drone = DroneBaseClassSP:subclass() -- I had to make a subclass to override some functions BEFORE creating an instance
 
 function drone:organizeThrusterTable(thruster_table)
 
