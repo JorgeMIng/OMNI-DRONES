@@ -1,4 +1,5 @@
 --For Balyena SandSkiff VS+Tournament 1.18.2 (still waiting for the thruster API to be implemented in 1.20.1 )
+--Watch this tutorial video on how to use this class: https://youtu.be/07Czgxqp0dk
 local DroneBaseClassSP = require "lib.tilt_ships.DroneBaseClassSP"
 
 local quaternion = require "lib.quaternions"
