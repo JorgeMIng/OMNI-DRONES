@@ -1,4 +1,4 @@
---For Sand Skiff using HexxySkies and HexTweaks 4.0.0
+--For HexxySkies and HexTweaks 4.0.0+
 local DroneBaseClassHexxySkies = require "lib.tilt_ships.DroneBaseClassHexxySkies"
 
 local Path = require "lib.paths.Path"
