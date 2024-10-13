@@ -1,4 +1,5 @@
 --For Balyena SandSkiff VS+Kontraption MC 1.20.1 and 1.18.2
+--Watch this tutorial video on how to use this class: https://youtu.be/t7hRWTVeBWA
 local DroneBaseClassKontraption = require "lib.tilt_ships.DroneBaseClassKontraption"
 
 local quaternion = require "lib.quaternions"
