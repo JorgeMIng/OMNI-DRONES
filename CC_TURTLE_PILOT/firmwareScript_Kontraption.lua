@@ -14,7 +14,7 @@ local instance_configs = {
 			},
 		},
 		ION_THRUSTERS_COUNT = { --number of ion thrusters pointing in each cardinal direction
-        	pos=vector.new(26,26,12), 	-- +X, +Y, +Z
+        	pos=vector.new(26,26,12), 	-- +X, +Y, +Z	-- this is how many ion thrusters Balyena has
         	neg=vector.new(26,26,12)	-- -X, -Y, -Z
     	},
 }
