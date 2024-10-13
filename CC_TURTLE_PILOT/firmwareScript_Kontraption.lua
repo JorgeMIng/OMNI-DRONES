@@ -1,3 +1,4 @@
+--For Kontraption MC 1.20.1 and 1.18.2
 local DroneBaseClassKontraption = require "lib.tilt_ships.DroneBaseClassKontraption"
 
 local quaternion = require "lib.quaternions"
