@@ -1,3 +1,4 @@
+--For Command Computer from Computercraft with CC:VS addon installed
 local DroneBaseClassCommandComputer = require "lib.tilt_ships.DroneBaseClassCommandComputer"
 
 local quaternion = require "lib.quaternions"
