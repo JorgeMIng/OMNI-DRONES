@@ -11,10 +11,6 @@ Visit their discord servers: ([VS2](https://discord.gg/aWeNDCUTS6), [CC](https:/
    <h1>OMNI-DRONES</h1>
 </div>
 
- 
-
-
-
 <div align="center">
    <p>Formerly known as <a href="https://github.com/19PHOBOSS98/TILT-SHIP-FRAMEWORK-FOR-VALKYRIEN-SKIES-2-AND-COMPUTERCRAFT">Tilt-Ships</a> , Omni-Drones are semi-autonomous flying platforms with omnidirectional flight capabilities.
       </br> I've mostly been using them as personal mobile weapons platforms:</p>
@@ -27,8 +23,6 @@ Visit their discord servers: ([VS2](https://discord.gg/aWeNDCUTS6), [CC](https:/
    
 </div>
 
-
-
 <div align="center">
    <p>But I chillout sometimes:</p>
    <picture><img src="https://github.com/19PHOBOSS98/Mirage/assets/37253663/13752a40-b78b-4fd7-8433-c0f8ebf0710f" alt="divider180"></picture>
@@ -37,8 +31,6 @@ Visit their discord servers: ([VS2](https://discord.gg/aWeNDCUTS6), [CC](https:/
    <a href="https://youtu.be/tyDpnHnf88o"><img src="https://github.com/user-attachments/assets/44a5f1a9-82ee-4f0f-a2d2-9ddb9073cdfd"  width=1000 alt="yt"></a>
    <picture><img src="https://github.com/19PHOBOSS98/Mirage/assets/37253663/dd711759-589a-4317-a82f-671ab45baf45" alt="divider"></picture>
 </div>
-
-
 
 <div align="center">
    <p>Valkyrien Skies 2 has a lot of addons that add their own flight components ranging from ion thrusters to magic wands. 
@@ -135,5 +127,7 @@ self.target_global_position = vector.new(X,Y,Z)
    Once you are happy with your changes in fligth behavior, we can now start flying. Just restart the turtle pilot. If everything goes well it should start flying to the coordinates you've set it to go. 
    
 ### WANT MORE?
-Whenever you are ready, you can try following the rest of the [tutorial series](https://youtube.com/playlist?list=PL1bsn0MYd0U66LAyrpklsqIQDQLFjEzH0&si=2GKLiGcCHLSxidNb). Add remote control, swap to tournament, learn how to tame a Hound Turret! but most importantly, have fun :) 
+If you prefer video tutorials you can follow the [tutorial series](https://youtube.com/playlist?list=PL1bsn0MYd0U66LAyrpklsqIQDQLFjEzH0&si=2GKLiGcCHLSxidNb) at my YT channel.
+
+Add remote controls, swap to tournament, learn how to tame a Hound Turret! but most importantly, have fun :) 
    
