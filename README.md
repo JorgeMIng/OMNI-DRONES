@@ -24,6 +24,9 @@ I've mostly been using them as personal mobile weapons platforms:
    <picture><img src="https://github.com/19PHOBOSS98/Mirage/assets/37253663/dd711759-589a-4317-a82f-671ab45baf45" alt="divider"></picture>
    
 </div>
+![KONTRAPTION_OMNIDRONE](https://github.com/user-attachments/assets/59e0e4c1-9de3-475c-969a-a0817d342837)
+
+![THUMBNAIL](https://github.com/user-attachments/assets/e4f6c0cd-0ee6-4fed-bc67-2aa8e7d94fcd)
 
 But I chillout sometimes:
 
@@ -36,12 +39,12 @@ But I chillout sometimes:
    <picture><img src="https://github.com/19PHOBOSS98/Mirage/assets/37253663/dd711759-589a-4317-a82f-671ab45baf45" alt="divider"></picture>
 </div>
 
-Valkyrien Skies 2 has a lot of addons that add their own flight components ranging from ion thrusters to magic crystals. The Omni-Drone library includes "DroneBaseClasses" specifically written to utilize these components in building Omni-Drones:
+Valkyrien Skies 2 has a lot of addons that add their own flight components ranging from ion thrusters to magic wands. The Omni-Drone library includes "DroneBaseClasses" specifically written to utilize these components in building Omni-Drones:
 
 <div align="center">
    <picture><img src="https://github.com/19PHOBOSS98/Mirage/assets/37253663/13752a40-b78b-4fd7-8433-c0f8ebf0710f" alt="divider180"></picture>
-   <a href="https://youtu.be/XAGlgm_46qY"><img src="https://github.com/19PHOBOSS98/VS2-SKY-LEVIATHANS/assets/37253663/efd321a6-02b6-4e3f-b955-5c71b814307d"  width=1000 alt="yt"></a>
-
+   <a href="https://youtu.be/DYyF5lNlUgc"><img src="https://github.com/user-attachments/assets/59e0e4c1-9de3-475c-969a-a0817d342837"  width=1000 alt="yt"></a>
+   <a href="https://youtu.be/MWgLyscnf6s"><img src="https://github.com/user-attachments/assets/e4f6c0cd-0ee6-4fed-bc67-2aa8e7d94fcd"  width=1000 alt="yt"></a>
    <picture><img src="https://github.com/19PHOBOSS98/Mirage/assets/37253663/dd711759-589a-4317-a82f-671ab45baf45" alt="divider"></picture>
 </div>
 
