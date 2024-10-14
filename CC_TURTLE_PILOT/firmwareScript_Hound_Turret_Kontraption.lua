@@ -2,10 +2,9 @@
 local DroneBaseClassKontraption = require "lib.tilt_ships.DroneBaseClassKontraption"
 local HoundTurretArsNouveauMagitech = require "lib.tilt_ships.HoundTurretArsNouveauMagitech"
 local HoundTurretArsNouveauMagitech1201 = require "lib.tilt_ships.HoundTurretArsNouveauMagitech1201"
-local Path = require "lib.paths.Path"
-local path_utilities = require "lib.path_utilities"
+
 local quaternion = require "lib.quaternions"
-local JSON = require "lib.JSON"
+
 
 local instance_configs = {
 	radar_config = {
