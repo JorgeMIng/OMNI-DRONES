@@ -22,6 +22,12 @@ local instance_configs = {
 
 local drone = DroneBaseClassKontraption(instance_configs)
 
+-- Watch this tutorial video to learn how to use this function: https://youtu.be/07Czgxqp0dk?si=gltpueMIgFjHpqJZ&t=269 (skip to 4:29)
+function drone:getOffsetDefaultShipOrientation(default_ship_orientation)
+	return quaternion.fromRotation(default_ship_orientation:localPositiveY(), -90)*default_ship_orientation
+end
+
+-- Watch this tutorial video to learn how to use this function: https://youtu.be/07Czgxqp0dk?si=gltpueMIgFjHpqJZ&t=269 (5:25 to 10:30)
 function drone:customFlightLoopBehavior(customFlightVariables)
 	self.target_rotation = quaternion.fromToRotation(self.target_rotation:localPositiveX(),vector.new(0,0,1))*self.target_rotation
 	--self.target_rotation = quaternion.fromToRotation(self.target_rotation:localPositiveY(),vector.new(0,-1,0))*self.target_rotation -- uncomment to flip ship upside down
