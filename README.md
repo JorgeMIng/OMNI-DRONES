@@ -1,7 +1,58 @@
-# OMNI-DRONES
+<div align="center">
+   <h1>OMNI-DRONE FLIGHT SYSTEM</h1>
+</div>
+The Omni-Drone Flight System is an opensource Lua based framework-library for creating Omni-Drones in Modded Minecraft
 
+[Valkyrien Skies 2 (VS2)](https://modrinth.com/mod/valkyrien-skies) is a Minecraft Mod that turns minecraft structures into physics objects. With it are an army of [addons](https://wiki.valkyrienskies.org/wiki/List_of_addons) that "add" stuff to make them fly among other things. Coupled with [ComputerCraft](https://modrinth.com/mod/cc-tweaked) we can achieve omnidirectional flight.
 
+Visit their discord servers: ([VS2](https://discord.gg/aWeNDCUTS6), [CC](https://discord.gg/dRTtrdK)) to learn more.
 
+<div align="center">
+   <h1>OMNI-DRONES</h1>
+</div>
+
+Formerly known as <a href="https://github.com/19PHOBOSS98/TILT-SHIP-FRAMEWORK-FOR-VALKYRIEN-SKIES-2-AND-COMPUTERCRAFT">Tilt-Ships</a> , Omni-Drones are semi-autonomous flying platforms with omnidirectional flight capabilities. 
+
+I've mostly been using them as personal mobile weapons platforms:
+
+<div align="center">
+   <picture><img src="https://github.com/19PHOBOSS98/Mirage/assets/37253663/13752a40-b78b-4fd7-8433-c0f8ebf0710f" alt="divider180"></picture>
+   <a href="https://youtu.be/V3nzxjTneVU?si=be4u1V4W7EaugcCa"><img src="https://github.com/19PHOBOSS98/VS2-SKY-LEVIATHANS/assets/37253663/2e28fdbd-9965-4669-9bbd-1f08b847e4fb" width=500></a>
+   <a href="https://youtu.be/taD_ttDTe9o?si=I5Tb_lHbId45Q35O"><img src="https://github.com/19PHOBOSS98/VS2-SKY-LEVIATHANS/assets/37253663/7389152f-4932-49b3-94f5-349fe4b60b19" width=500></a>
+   <a href="https://youtu.be/6bWQAPWenPQ?si=adP8IJIbNb8YkUDD"><img src="https://github.com/19PHOBOSS98/VS2-SKY-LEVIATHANS/assets/37253663/bb6d2b99-0aec-4507-bb44-dccc4fbd2111" width=500></a>
+   <a href="https://youtu.be/SlBE66_YH5s?si=0GAqMIa5j-sWAy26"><img src="https://github.com/19PHOBOSS98/VS2-SKY-LEVIATHANS/assets/37253663/00cbd227-77a3-45d5-a33a-6859a0bfdf3a" width=500></a>
+   <picture><img src="https://github.com/19PHOBOSS98/Mirage/assets/37253663/dd711759-589a-4317-a82f-671ab45baf45" alt="divider"></picture>
+   
+</div>
+
+But I chillout sometimes:
+
+<div align="center">
+   <picture><img src="https://github.com/19PHOBOSS98/Mirage/assets/37253663/13752a40-b78b-4fd7-8433-c0f8ebf0710f" alt="divider180"></picture>
+   <a href="https://youtu.be/XAGlgm_46qY"><img src="https://github.com/19PHOBOSS98/VS2-SKY-LEVIATHANS/assets/37253663/efd321a6-02b6-4e3f-b955-5c71b814307d"  width=1000 alt="yt"></a>
+
+   <a href="https://youtu.be/V5mmxK4O3HE?si=v8nPOR1zxZWqaxC6"><img src="https://github.com/19PHOBOSS98/VS2-SKY-WHALES/assets/37253663/d5f47755-08ed-49e0-9e88-3532d6404a50" width=1000 alt="yt"></a>
+
+   <picture><img src="https://github.com/19PHOBOSS98/Mirage/assets/37253663/dd711759-589a-4317-a82f-671ab45baf45" alt="divider"></picture>
+</div>
+
+Valkyrien Skies 2 has a lot of addons that add their own flight components ranging from ion thrusters to magic crystals. The Omni-Drone library includes "DroneBaseClasses" specifically written to utilize these components in building Omni-Drones:
+
+<div align="center">
+   <picture><img src="https://github.com/19PHOBOSS98/Mirage/assets/37253663/13752a40-b78b-4fd7-8433-c0f8ebf0710f" alt="divider180"></picture>
+   <a href="https://youtu.be/XAGlgm_46qY"><img src="https://github.com/19PHOBOSS98/VS2-SKY-LEVIATHANS/assets/37253663/efd321a6-02b6-4e3f-b955-5c71b814307d"  width=1000 alt="yt"></a>
+
+   <picture><img src="https://github.com/19PHOBOSS98/Mirage/assets/37253663/dd711759-589a-4317-a82f-671ab45baf45" alt="divider"></picture>
+</div>
+
+<div align="center">
+   
+   <picture><img src="https://github.com/19PHOBOSS98/Mirage/assets/37253663/13752a40-b78b-4fd7-8433-c0f8ebf0710f" alt="divider180"></picture>
+   <picture><img src="https://github.com/19PHOBOSS98/Mirage/assets/37253663/2f062bd9-d8cd-4425-8bcb-00096ee885e6" alt="krakenemblem"></picture>
+   <a href="https://www.youtube.com/channel/UCmdUkIr-zCxO9CvOLxeSzlg"><img src="https://github.com/19PHOBOSS98/Mirage/assets/37253663/eaed673b-eda2-43b7-9312-60868037690a" alt="yt"></a>
+   
+   <picture><img src="https://github.com/19PHOBOSS98/Mirage/assets/37253663/dd711759-589a-4317-a82f-671ab45baf45" alt="divider"></picture>
+</div> 
 ## GETTING STARTED
 
 Omni-Drones are mostly known for using [VS+Tournament](https://modrinth.com/mod/vs-tournament) thrusters but there are other Valkyrien Skies addons that the Omni-Drone system can use to fly your ship!
