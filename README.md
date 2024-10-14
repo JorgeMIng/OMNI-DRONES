@@ -1,14 +1,12 @@
 <div align="center">
    <h1>OMNI-DRONE FLIGHT SYSTEM</h1>
 </div>
-The Omni-Drone Flight System is an open-source Lua based framework-library for creating Omni-Drones in Modded Minecraft.
+<p>The Omni-Drone Flight System is an open-source Lua based framework-library for creating Omni-Drones in Modded Minecraft.
 
+</br>[Valkyrien Skies 2 (VS2)](https://modrinth.com/mod/valkyrien-skies) is a Minecraft Mod that turns minecraft structures into physics objects. With it are an army of [addons](https://wiki.valkyrienskies.org/wiki/List_of_addons) that "add" stuff to make them fly among other things. Coupled with [ComputerCraft](https://modrinth.com/mod/cc-tweaked) we can achieve omnidirectional flight.
 
-[Valkyrien Skies 2 (VS2)](https://modrinth.com/mod/valkyrien-skies) is a Minecraft Mod that turns minecraft structures into physics objects. With it are an army of [addons](https://wiki.valkyrienskies.org/wiki/List_of_addons) that "add" stuff to make them fly among other things. Coupled with [ComputerCraft](https://modrinth.com/mod/cc-tweaked) we can achieve omnidirectional flight.
-
-
-Visit their discord servers: ([VS2](https://discord.gg/aWeNDCUTS6), [CC](https://discord.gg/dRTtrdK)) to learn more.
-
+</br>Visit their discord servers: ([VS2](https://discord.gg/aWeNDCUTS6), [CC](https://discord.gg/dRTtrdK)) to learn more.
+</p>
 <div align="center">
    <h1>OMNI-DRONES</h1>
 </div>
