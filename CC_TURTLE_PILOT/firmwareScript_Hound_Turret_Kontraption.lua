@@ -1,10 +1,10 @@
 --For Hound Turret using VS+Kontraption
 local DroneBaseClassKontraption = require "lib.tilt_ships.DroneBaseClassKontraption"
 local HoundTurretArsNouveauMagitech = require "lib.tilt_ships.HoundTurretArsNouveauMagitech"
-local Path = require "lib.paths.Path"
-local path_utilities = require "lib.path_utilities"
+local HoundTurretArsNouveauMagitech1201 = require "lib.tilt_ships.HoundTurretArsNouveauMagitech1201"
+
 local quaternion = require "lib.quaternions"
-local JSON = require "lib.JSON"
+
 
 local instance_configs = {
 	radar_config = {
@@ -48,15 +48,14 @@ local instance_configs = {
 	},
 }
 
-local drone = HoundTurretArsNouveauMagitech:subclass()
+local drone = HoundTurretArsNouveauMagitech:subclass() -- I had to make a subclass to override some functions BEFORE creating an instance (before initializing the instance)
+
+if(string.find(_HOST,"Minecraft 1.20.1")) then
+	drone = HoundTurretArsNouveauMagitech1201:subclass() -- Hound Turrets work differently in 1.20.1. It uses hexcasting to speedup the spell bullets
+end
 
 function drone:setShipFrameClass(configs) --override this to set ShipFrame Template
 	self.ShipFrame = DroneBaseClassKontraption(configs)
-end
-
-function drone:onGunsActivation()
-	--self.repulsor.pulse(0,0,0) --repels the spell projectiles too fast to see
-	self:activateLaser()
 end
 
 function drone:alternateFire(step)
