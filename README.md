@@ -11,11 +11,13 @@ Visit their discord servers: ([VS2](https://discord.gg/aWeNDCUTS6), [CC](https:/
    <h1>OMNI-DRONES</h1>
 </div>
 
-Formerly known as <a href="https://github.com/19PHOBOSS98/TILT-SHIP-FRAMEWORK-FOR-VALKYRIEN-SKIES-2-AND-COMPUTERCRAFT">Tilt-Ships</a> , Omni-Drones are semi-autonomous flying platforms with omnidirectional flight capabilities. 
+ 
 
-I've mostly been using them as personal mobile weapons platforms:
+
 
 <div align="center">
+   <p>Formerly known as <a href="https://github.com/19PHOBOSS98/TILT-SHIP-FRAMEWORK-FOR-VALKYRIEN-SKIES-2-AND-COMPUTERCRAFT">Tilt-Ships</a> , Omni-Drones are semi-autonomous flying platforms with omnidirectional flight capabilities.
+      </br> I've mostly been using them as personal mobile weapons platforms:</p>
    <picture><img src="https://github.com/19PHOBOSS98/Mirage/assets/37253663/13752a40-b78b-4fd7-8433-c0f8ebf0710f" alt="divider180"></picture>
    <a href="https://youtu.be/V3nzxjTneVU?si=be4u1V4W7EaugcCa"><img src="https://github.com/19PHOBOSS98/VS2-SKY-LEVIATHANS/assets/37253663/2e28fdbd-9965-4669-9bbd-1f08b847e4fb" width=500></a>
    <a href="https://youtu.be/taD_ttDTe9o?si=I5Tb_lHbId45Q35O"><img src="https://github.com/19PHOBOSS98/VS2-SKY-LEVIATHANS/assets/37253663/7389152f-4932-49b3-94f5-349fe4b60b19" width=500></a>
@@ -24,27 +26,27 @@ I've mostly been using them as personal mobile weapons platforms:
    <picture><img src="https://github.com/19PHOBOSS98/Mirage/assets/37253663/dd711759-589a-4317-a82f-671ab45baf45" alt="divider"></picture>
    
 </div>
-![KONTRAPTION_OMNIDRONE](https://github.com/user-attachments/assets/59e0e4c1-9de3-475c-969a-a0817d342837)
 
-![THUMBNAIL](https://github.com/user-attachments/assets/e4f6c0cd-0ee6-4fed-bc67-2aa8e7d94fcd)
 
-But I chillout sometimes:
 
 <div align="center">
+   <p>But I chillout sometimes:</p>
    <picture><img src="https://github.com/19PHOBOSS98/Mirage/assets/37253663/13752a40-b78b-4fd7-8433-c0f8ebf0710f" alt="divider180"></picture>
    <a href="https://youtu.be/XAGlgm_46qY"><img src="https://github.com/19PHOBOSS98/VS2-SKY-LEVIATHANS/assets/37253663/efd321a6-02b6-4e3f-b955-5c71b814307d"  width=1000 alt="yt"></a>
-
    <a href="https://youtu.be/V5mmxK4O3HE?si=v8nPOR1zxZWqaxC6"><img src="https://github.com/19PHOBOSS98/VS2-SKY-WHALES/assets/37253663/d5f47755-08ed-49e0-9e88-3532d6404a50" width=1000 alt="yt"></a>
-
+   <a href="https://youtu.be/tyDpnHnf88o"><img src="https://github.com/user-attachments/assets/44a5f1a9-82ee-4f0f-a2d2-9ddb9073cdfd"  width=1000 alt="yt"></a>
    <picture><img src="https://github.com/19PHOBOSS98/Mirage/assets/37253663/dd711759-589a-4317-a82f-671ab45baf45" alt="divider"></picture>
 </div>
 
-Valkyrien Skies 2 has a lot of addons that add their own flight components ranging from ion thrusters to magic wands. The Omni-Drone library includes "DroneBaseClasses" specifically written to utilize these components in building Omni-Drones:
+
 
 <div align="center">
+   <p>Valkyrien Skies 2 has a lot of addons that add their own flight components ranging from ion thrusters to magic wands. 
+   </br>The Omni-Drone library includes "DroneBaseClasses" specifically written to utilize these components in building Omni-Drones:</p>
    <picture><img src="https://github.com/19PHOBOSS98/Mirage/assets/37253663/13752a40-b78b-4fd7-8433-c0f8ebf0710f" alt="divider180"></picture>
    <a href="https://youtu.be/DYyF5lNlUgc"><img src="https://github.com/user-attachments/assets/59e0e4c1-9de3-475c-969a-a0817d342837"  width=1000 alt="yt"></a>
    <a href="https://youtu.be/MWgLyscnf6s"><img src="https://github.com/user-attachments/assets/e4f6c0cd-0ee6-4fed-bc67-2aa8e7d94fcd"  width=1000 alt="yt"></a>
+   <a href="https://youtu.be/yQ7BXQkKIRI"><img src="https://github.com/user-attachments/assets/ea855ed3-1675-4a24-87b3-288c7f5b9007"  width=1000 alt="yt"></a>
    <picture><img src="https://github.com/19PHOBOSS98/Mirage/assets/37253663/dd711759-589a-4317-a82f-671ab45baf45" alt="divider"></picture>
 </div>
 
