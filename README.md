@@ -49,11 +49,14 @@ Visit their discord servers: ([VS2](https://discord.gg/aWeNDCUTS6), [CC](https:/
    <a href="https://www.youtube.com/channel/UCmdUkIr-zCxO9CvOLxeSzlg"><img src="https://github.com/19PHOBOSS98/Mirage/assets/37253663/eaed673b-eda2-43b7-9312-60868037690a" alt="yt"></a>
    
    <picture><img src="https://github.com/19PHOBOSS98/Mirage/assets/37253663/dd711759-589a-4317-a82f-671ab45baf45" alt="divider"></picture>
-</div> 
+</div>
+
 ## GETTING STARTED
 
 Omni-Drones are mostly known for using [VS+Tournament](https://modrinth.com/mod/vs-tournament) thrusters but there are other Valkyrien Skies addons that the Omni-Drone system can use to fly your ship!
 It is a bit complicated for beginners to setup an omni-drone using VS+Tournament so let's get you started using [VS+Kontraption](https://modrinth.com/mod/kontraption) instead!
+
+You can follow the [tutorial series](https://youtube.com/playlist?list=PL1bsn0MYd0U66LAyrpklsqIQDQLFjEzH0&si=2GKLiGcCHLSxidNb) at my YT channel to learn more.
 
 ## SETTING UP
 
@@ -126,8 +129,5 @@ self.target_global_position = vector.new(X,Y,Z)
 ### FLY!
    Once you are happy with your changes in fligth behavior, we can now start flying. Just restart the turtle pilot. If everything goes well it should start flying to the coordinates you've set it to go. 
    
-### WANT MORE?
-If you prefer video tutorials you can follow the [tutorial series](https://youtube.com/playlist?list=PL1bsn0MYd0U66LAyrpklsqIQDQLFjEzH0&si=2GKLiGcCHLSxidNb) at my YT channel.
-
 Add remote controls, swap to tournament, learn how to tame a Hound Turret! but most importantly, have fun :) 
    
