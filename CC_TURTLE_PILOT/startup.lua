@@ -22,5 +22,8 @@
 -- 	os.sleep(1)
 -- end
 
+
+
 print("ship ID:",ship.getId()," starting ...")
-shell.run("firmwareScript.lua")
+
+shell.run("firmwareScript_Kontraption.lua")
